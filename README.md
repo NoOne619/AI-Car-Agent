@@ -1,64 +1,29 @@
-name: README Workflow
+# **AI Car TORCS Agent using Q-Learning** 🏁
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+**An autonomous driving agent trained using Q-Learning in the TORCS (The Open Racing Car Simulator) environment.**
 
-jobs:
-  check-readme:
-    runs-on: ubuntu-latest
+---
 
-    steps:
-      # Check out the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
+## **📌 Project Summary**
 
-      # Set up Python (since your project uses Python)
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.8"
+**This project focuses on building an AI agent that learns to drive a racing car in the TORCS simulator using the Q-Learning algorithm.**  
+The agent improves its performance over time by interacting with the environment, choosing actions based on a Q-table, and optimizing for maximum reward.
 
-      # Install dependencies (if needed for README processing)
-      - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
+---
 
-      # Check if README.md exists
-      - name: Check README existence
-        run: |
-          if [ ! -f README.md ]; then
-            echo "Error: README.md not found!"
-            exit 1
-          fi
+## **🧠 Key Features**
 
-      # Optional: Validate README format (e.g., check for key sections)
-      - name: Validate README content
-        run: |
-          grep -q "^#.*AI Car TORCS Agent" README.md || { echo "Error: README missing project title!"; exit 1; }
-          grep -q "^##.*Overview" README.md || { echo "Error: README missing Overview section!"; exit 1; }
+- **Q-Learning Implementation** – Discrete state-action space with custom reward function.
+- **TORCS Integration** – Utilizes the Gym-TORCS wrapper for seamless simulation control.
+- **Training from Scratch** – Agent learns to drive without prior knowledge.
+- **Q-Table Saving & Loading** – Persistent training progress.
+- **Visualizations** – Training performance plots and logs.
 
-      # Optional: Generate README (uncomment and customize if you have a generation script)
-      # - name: Generate README
-      #   run: |
-      #     python generate_readme.py  # Path to your README generation script
-      #     git config user.name "GitHub Actions"
-      #     git config user.email" "actions@github.com"
-      #     git add README.md
-      #     git commit -m "Auto-generate README" || echo "No changes to commit"
-      #     git push origin main
+---
 
-      # Optional: Notify on failure (e.g., Slack, Discord)
-      # - name: Notify on failure
-      #     if: failure()
-      #   uses: slackapi/slack-github-action@v1.2.24
-      #   with:
-      #     slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-      #     channel-id: 'your-channel-id'
-      #     text: 'README check failed for AI Car TORCS Agent project!'
+## **📦 Requirements**
+
+Install the following dependencies:
+
+```bash
+pip install numpy matplotlib gym
