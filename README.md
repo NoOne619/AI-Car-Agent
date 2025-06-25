@@ -1,4 +1,3 @@
-```yaml
 name: README Workflow
 
 on:
@@ -63,5 +62,3 @@ jobs:
       #     slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
       #     channel-id: 'your-channel-id'
       #     text: 'README check failed for AI Car TORCS Agent project!'
-
-```
